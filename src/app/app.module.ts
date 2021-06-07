@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -14,7 +14,7 @@ import { CoreModule } from './core/core.module';
 
 import { InMemoryDataService } from './services/in-memory-data/in-memory-data.service';
 
-import { environment as env } from "../environments/environment";
+import { environment as env } from '../environments/environment';
 
 @NgModule({
   declarations: [

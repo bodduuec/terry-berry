@@ -28,19 +28,21 @@ export class MyInfoComponent implements OnInit {
     private toastr: ToastrService
   ) { }
 
-  isMyInfoLoaded() {
+  isMyInfoLoaded(): boolean {
     return this.myInfoService.myInfoLoaded;
   }
 
-  saveMyInfo() {
+  saveMyInfo(): void {
     const myInfo = this.myInfoForm.getRawValue();
     this.myInfoService.myInfo = {...myInfo};
     this.toastr.success('My Info Saved', 'Success');
-    this.myInfoForm.reset(this.myInfoForm.value);  //resets the form state
+    this.myInfoForm.reset(this.myInfoForm.value);  // resets the form state
   }
 
-  setMyInfo(myInfo: MyInfo) {
-    if(!myInfo) return;
+  setMyInfo(myInfo: MyInfo): void {
+    if (!myInfo) {
+      return;
+    }
     this.myInfoForm.setValue({
       name: myInfo.name,
       age: myInfo.age,
@@ -51,20 +53,22 @@ export class MyInfoComponent implements OnInit {
     });
   }
 
-  loadMyInfo() {
-    if(this.myInfoService.myInfoLoaded) {
+  loadMyInfo(): void {
+    if (this.myInfoService.myInfoLoaded) {
       this.setMyInfo(this.myInfoService.myInfo);
     } else {
       this.loaderService.loading = true;
       this.myInfoService.loadMyInfo().subscribe((resp: any) => {
         this.loaderService.loading = false;
         this.myInfoService.myInfoLoaded = true;
-        if(resp.success) {
-          if(!resp.data) return;
+        if (resp.success) {
+          if (!resp.data) {
+            return;
+          }
           this.myInfoService.myInfo = resp.data;
           this.setMyInfo(resp.data);
         } else {
-          //i'm adding a generic message here. usually a specific error message will be added based on the error type.
+          // i'm adding a generic message here. usually a specific error message will be added based on the error type.
           this.toastr.error('Failed to load data. Please try again.', 'Error');
         }
       });
