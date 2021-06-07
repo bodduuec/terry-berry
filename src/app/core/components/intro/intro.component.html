@@ -1,0 +1,86 @@
+<mat-card class="introduction-card">
+  <mat-card-title>Introduction</mat-card-title>
+
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon class="check-icon">check</mat-icon>
+        <span class="item-description">
+          This application is developed using Angular.
+          Please note the key points related to architecture of the app that I used.
+        </span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-icon class="check-icon">check</mat-icon>
+        <span class="item-description">
+          <mark>App is modularized.</mark> All the modules are directly under the folder 'src/app'. Components are inside modules.
+        </span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-icon class="check-icon">check</mat-icon>
+        <span class="item-description">
+          Core module has three components intro, header and sidenav-list which are used only once in the app.
+        </span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-icon class="check-icon">check</mat-icon>
+        <span class="item-description">
+          Shared module has single loader component. Components in shared module can be reused throughout the app in any module.
+        </span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-icon class="check-icon">check</mat-icon>
+        <span class="item-description">
+          <mark>Angular material is extensively used.</mark> All the material modules used in app are imported into a module names 'MaterialModule'.
+          This module is imported whereever necessary.
+        </span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-icon class="check-icon">check</mat-icon>
+        <span class="item-description">
+          <mark>My Info data is loaded from a memory api.</mark> Once data is fetched it is saved in a service ('MyInfoService') so that next time user loads the component another HTTP request is not made.
+        </span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-icon class="check-icon">check</mat-icon>
+        <span class="item-description">
+          <mark>Reactive form is used to handle data. Validations are added.</mark>
+          Name is mandatory and age cannot be less than 0. Email and mobile number format is also validated.
+          For mobile number validation I used a simple regex.
+          Please add mobile number without spaces and hyphens to test validation.
+          If there are validation errors appropriate error messages are show.
+          Once the form is submitted, the edited data is saved in the service 'MyInfoService'.
+        </span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-icon class="check-icon">check</mat-icon>
+        <span class="item-description">
+          <mark>Navigation bar is responsive.</mark> Please try to reduce the width of screen below 600px and notice that nav bar will collapse.
+        </span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-icon class="check-icon">check</mat-icon>
+        <span class="item-description">
+          Used 'ngx-toastr' npm module to show toast messages when a user action completes or error occurs.
+        </span>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-icon class="check-icon">check</mat-icon>
+        <span class="item-description">
+          <mark>Run ng lint to find any linting errors.</mark>
+        </span>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-card-content>
+
+</mat-card>

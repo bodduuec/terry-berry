@@ -1,0 +1,28 @@
+.my-info-card {
+  margin: 80px auto 20px;
+}
+
+.my-info-form-group-card {
+  margin: 20px auto;
+  .my-info-form {
+    mat-form-field {
+      display: block;
+    }
+    .warning-text-wrapper {
+      margin-bottom: 20px;
+      .warning-text {
+        color: #f44336;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .my-info-card {
+    margin: 80px 20px 20px;
+  }
+  .my-info-form-group-card {
+    margin: 20px;
+  }
+}
+

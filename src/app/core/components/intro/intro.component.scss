@@ -1,0 +1,19 @@
+.introduction-card {
+  margin: 80px 0 20px;
+  .mat-list-item {
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .check-icon {
+    color: green;
+  }
+  .item-description {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .introduction-card {
+    margin: 80px 20px 20px;
+  }
+}

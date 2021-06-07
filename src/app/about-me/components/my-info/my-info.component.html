@@ -1,0 +1,83 @@
+<mat-card class="my-info-card" *ngIf="isMyInfoLoaded()">
+  <mat-card-title>My Info</mat-card-title>
+
+  <mat-card-subtitle>Name</mat-card-subtitle>
+  <mat-card-content>{{myInfoForm.value.name}}</mat-card-content>
+
+  <mat-card-subtitle>Age</mat-card-subtitle>
+  <mat-card-content>{{myInfoForm.value.age}}</mat-card-content>
+
+  <mat-card-subtitle>Email</mat-card-subtitle>
+  <mat-card-content>{{myInfoForm.value.email}}</mat-card-content>
+
+  <mat-card-subtitle>Mobile</mat-card-subtitle>
+  <mat-card-content>{{myInfoForm.value.mobile}}</mat-card-content>
+
+  <mat-card-subtitle>Interests</mat-card-subtitle>
+  <mat-card-content>{{myInfoForm.value.interests}}</mat-card-content>
+
+  <mat-card-subtitle>Description</mat-card-subtitle>
+  <mat-card-content>{{myInfoForm.value.description}}</mat-card-content>
+</mat-card>
+
+<mat-card class="my-info-form-group-card" *ngIf="isMyInfoLoaded()">
+  <mat-card-title>My Info Form</mat-card-title>
+
+  <form class="my-info-form" [formGroup]="myInfoForm" (submit)="saveMyInfo()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name">
+    </mat-form-field>
+
+    <div *ngIf="myInfoForm.invalid && (myInfoForm.dirty || myInfoForm.touched)" class="warning-text-wrapper">
+      <small *ngIf="myInfoForm.get('name')?.errors?.required" class="warning-text">
+        Name is required.
+      </small>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input matInput type="number" formControlName="age">
+    </mat-form-field>
+
+    <div *ngIf="myInfoForm.invalid && (myInfoForm.dirty || myInfoForm.touched)" class="warning-text-wrapper">
+      <small *ngIf="myInfoForm.get('age')?.errors?.min" class="warning-text">
+        Age cannot be less than zero.
+      </small>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email">
+    </mat-form-field>
+
+    <div *ngIf="myInfoForm.invalid && (myInfoForm.dirty || myInfoForm.touched)" class="warning-text-wrapper">
+      <small *ngIf="myInfoForm.get('email')?.errors?.email" class="warning-text">
+        Invalid Email format.
+      </small>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Mobile</mat-label>
+      <input matInput type="tel" formControlName="mobile">
+    </mat-form-field>
+
+    <div *ngIf="myInfoForm.invalid && (myInfoForm.dirty || myInfoForm.touched)" class="warning-text-wrapper">
+      <small *ngIf="myInfoForm.get('mobile')?.errors?.pattern" class="warning-text">
+        Invalid Mobile format.
+      </small>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Interests</mat-label>
+      <textarea matInput formControlName="interests"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <button [disabled]="myInfoForm.invalid || !myInfoForm.dirty" mat-raised-button color="primary" type="submit">Save</button>
+  </form>
+</mat-card>
